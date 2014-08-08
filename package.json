@@ -1,7 +1,7 @@
 {
   "name": "gulp-ng-autobootstrap",
   "version": "0.0.1",
-  "description": "Gulp plugin to automatically create bootstrap files for requiring your angular modules with browserify.",
+  "description": "A gulp plugin to automatically create bootstrap files for requiring your angular modules with browserify.",
   "keywords": [
     "angular",
     "angularjs",
