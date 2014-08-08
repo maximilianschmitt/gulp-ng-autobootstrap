@@ -21,7 +21,7 @@ gulp.task('autobootstrap', function() {
 	return gulp
 		.src('js/**/*.js')
 		.pipe(ngAutoBootstrap(options))
-		.pipe(gulp.dest('./bootstrap.js'));
+		.pipe(gulp.dest('js'));
 });
 ```
 
