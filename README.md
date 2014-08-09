@@ -1,5 +1,7 @@
 # gulp-ng-autobootstrap
 
+![Travis Build](http://img.shields.io/travis/maximilianschmitt/gulp-ng-autobootstrap.svg?style=flat)
+
 > Automatically generate bootstrap files for your browserify-powered angular apps that pull in all your angular modules (like controllers and directives) for you.
 >
 > Inspired by [ng-classify](https://github.com/CaryLandholt/ng-classify).
