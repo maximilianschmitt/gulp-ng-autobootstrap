@@ -24,7 +24,7 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "ng-autobootstrap": "0.0.1",
+    "ng-autobootstrap": "0.0.2",
     "through2": "^0.5.1",
     "vinyl": "^0.3.2"
   },
