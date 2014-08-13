@@ -19,7 +19,7 @@ npm install gulp-ng-autobootstrap
 ``` js
 var ngAutoBootstrap = require('gulp-ng-autobootstrap');
 
-gulp.task('autobootstrap', function() {
+gulp.task('ng-autobootstrap', function() {
 	return gulp
 		.src('js/**/*.js')
 		.pipe(ngAutoBootstrap(options))
@@ -97,5 +97,55 @@ module.exports = function(app) {
 
 * Configure path and name for your bootstap file
 * Configure any casing convention for your module names (`camelCase`, `PascalCase`, `Title Case`, `snake_case`, `lowercase`, `UPPERCASE`, `CONSTANT_CASE` and more)
-* Configure prefixes and suffixes for your module names (`AppCtrl`, `AppController`, just `App` or anything you like) 
+* Configure prefixes and suffixes for your module names (`AppCtrl`, `AppController`, just `App` or anything you like)
 * Organize your modules how you like
+
+## Use cases
+
+### Generating one `bootstrap.js` file per angular module
+
+If you're splitting up your app into multiple modules, like `angular.module('app.admin', [])` and `angular.module('app.user', [])`, your directory structure may look something like this:
+
+```
+app/
+	admin/
+		controllers/
+		directives/
+	user/
+		controllers/
+		services/
+```
+
+You can effortlessly create multiple `bootstrap.js` files (one for each module) using gulp:
+
+``` js
+var merge = require('merge-stream');
+
+gulp.task('ng-autobootstrap', function() {
+	var admin = gulp
+		.src('app/admin/**/*.js')
+		.pipe(ngAutobootstrap())
+		.pipe(gulp.dest('app/admin'));
+
+	var user = gulp
+		.src('app/user/**/*.js')
+		.pipe(ngAutobootstrap())
+		.pipe(gulp.dest('app/user'));
+
+	return merge(admin, user);
+});
+```
+
+Then you will end up with multiple `bootstrap.js files like this:
+
+```
+app/
+	admin/
+		controllers/
+		directives/
+		bootstrap.js // pulls in admin-controllers and admin-directives
+	user/
+		controllers/
+		services/
+		bootstrap.js // pulls in user-controllers and user-services
+```
