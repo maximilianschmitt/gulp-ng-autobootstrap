@@ -1,6 +1,6 @@
 {
   "name": "gulp-ng-autobootstrap",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A gulp plugin to automatically create bootstrap files for requiring your angular modules with browserify.",
   "keywords": [
     "angular",
@@ -24,7 +24,7 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "ng-autobootstrap": "0.1.0",
+    "ng-autobootstrap": "^0.2.0",
     "through2": "^0.5.1",
     "vinyl": "^0.3.2"
   },
